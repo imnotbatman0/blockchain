@@ -1,10 +1,29 @@
-Compile code using "g++ -std=c++17 -m64 -o simulator simulator.cpp"
+# Blockchain Simulator
 
-If you get segfault that's because of your compiler is restricting memory on your process(This is a heavy simulation it needs lots of memory).
-To fix it, allocate high memory by running "ulimit -s unlimited" and "ulimit -v unlimited" (works in Linux and Mac). This allocates unlimited virtual memory and stack to your current compiler
+Compile code using:
 
-After execution you can see a BlockChain Tree for 10 peers is shown in output. Here is how it looks two peers.
+```bash
+g++ -std=c++17 -m64 -o simulator simulator.cpp
+```
 
+If you get a segmentation fault, it may be because your compiler is restricting memory on your process. This is a heavy simulation and needs lots of memory.
+
+To fix it, allocate high memory by running:
+
+```bash
+ulimit -s unlimited
+ulimit -v unlimited
+```
+
+(works in Linux and Mac)
+
+This allocates unlimited virtual memory and stack to your current compiler.
+
+After execution, you can see a BlockChain Tree for 10 peers in the output.
+
+Here is how it looks for two peers:
+
+```
 --- Blockchain Tree for Peer 8 ---
 Blk-0 (Genesis)
 └──Blk-170 (Depth: 1)
@@ -55,3 +74,4 @@ Blk-0 (Genesis)
                                                                         └──Blk-1521 (Depth: 19)
                                                                             └──Blk-1573 (Depth: 20)
 ------------------------------------------
+```
